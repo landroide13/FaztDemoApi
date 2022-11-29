@@ -16,7 +16,7 @@ exports.getAudiobooks = async(req, res) =>{
 
 exports.getAudiobook = async(req, res) =>{
     const audio = await Audio.findById(req.params.id)
-    res.status(200).res.json(audio);
+    res.status(200).json(audio);
 }
 
 exports.updateAudiobook = async(req, res) =>{

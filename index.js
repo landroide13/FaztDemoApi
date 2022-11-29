@@ -1,4 +1,4 @@
-require("dotenv").config();
+//require("dotenv").config();
 require('./database');
 const express = require('express');
 const app = express();
@@ -7,6 +7,7 @@ const cors = require('cors');
 const errorHandler = require('./handlers/error');
 const authRoutes = require('./routes/auth');
 const audioRoutes = require('./routes/audiobooks');
+const usersRoutes = require('./routes/user');
 
 
 //Use 
@@ -17,6 +18,7 @@ app.use(body.urlencoded({extended: true}))
 
 app.use("/api/auth", authRoutes);
 app.use("/api/audiobooks", audioRoutes);
+app.use("/api/users", usersRoutes); 
 
 
 //Routes

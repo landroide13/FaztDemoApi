@@ -7,9 +7,8 @@ exports.signup = async(req, res) => {
     const { username, email, password } = req.body;
     const newUser = new User({ username, email, password: await User.hashPassword(password) });
     const saved = await newUser.save();
-    console.log(newUser);
-    res.json(saved);
-
+    console.log(saved);
+    
     const token =  jwt.sign({ id: saved._id }, process.env.SECRET_KEY, {expiresIn: 86400});
     res.status(200).json({token});
 }
