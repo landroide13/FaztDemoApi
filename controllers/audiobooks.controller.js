@@ -1,7 +1,7 @@
 const Audio = require('../models/audiobook')
 
 exports.createAudiobook = async(req, res) =>{
-    console.log(req.body);
+    console.log(req.body);   
     const { name, author, profileImageUrl, published } = req.body;
     const newAudio = new Audio({ name, author, profileImageUrl, published });
     const audioConf = await newAudio.save();
